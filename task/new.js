@@ -111,10 +111,19 @@ function fillNested() {
 }
 
 function searchFn() {
+  let data=document.getElementById('data')
   let showResult = mobile[mobileName.value][modelName.value];
   // let data=document.getElementById('data')
-  let myData = JSON.stringify(showResult);
-  document.getElementById("data").innerHTML = myData;
+  // let myData = JSON.stringify(showResult);
+  let keySpecs= Object.keys(showResult)
+  let ValSpecs= Object.values(showResult)
+  console.log(showResult)
+  data.innerHTML="";
+  for(var i=0; i<keySpecs.length;i++){
+    data.innerHTML+=`<h5><span>${keySpecs[i]}</span>:${ValSpecs[i]}</h5>`
+
+  }
+
 }
 
 //  let mobileName=document.getElementById('mobileName').value
